@@ -10,6 +10,16 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: "/table",
+    name: 'Table',
+    component: () => import('../views/Table.vue')
+  },
+  {
+    path: "/scope",
+    name: "Scope",
+    component: () => import('../views/Scope.vue')
+  }
   // {
   //   path: '/about',
   //   name: 'About',
