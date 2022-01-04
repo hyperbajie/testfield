@@ -19,6 +19,11 @@ const routes = [
     path: "/scope",
     name: "Scope",
     component: () => import('../views/Scope.vue')
+  },
+  {
+    path: "/promise",
+    name: "Promise",
+    component: () => import('../views/Promise.vue')
   }
   // {
   //   path: '/about',
