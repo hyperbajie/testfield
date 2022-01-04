@@ -24,6 +24,11 @@ const routes = [
     path: "/promise",
     name: "Promise",
     component: () => import('../views/Promise.vue')
+  },
+  {
+    path: "/jsx",
+    name: "Jsx",
+    component: () => import('../views/Jsx.vue')
   }
   // {
   //   path: '/about',
