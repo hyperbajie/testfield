@@ -29,6 +29,11 @@ const routes = [
     path: "/jsx",
     name: "Jsx",
     component: () => import('../views/Jsx.vue')
+  },
+  {
+    path: "/pop",
+    name: "Pop",
+    component: () => import('../views/Pop.vue')
   }
   // {
   //   path: '/about',
