@@ -1,25 +1,37 @@
 <template>
-  <div class="mask" @click="removeSelf">
-    <div class="content" ref="content"></div>
+  <div class="mask" @click.self="removeSelf">
+    <!-- <div class="content" ref="content">
+      <slot></slot>
+    </div> -->
+    <transition name="star">
+      <div v-if="show" class="content"></div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      show: false
+    }
+  },
   methods: {
     removeSelf() {
       this.$el.parentNode.removeChild(this.$el);
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.$refs["content"].style.right = "0px";
-    });
+    //放在两个task中
+    // setTimeout(() => {
+    //   this.$refs["content"].style.right = "0px";
+    // }, 0);
+    this.show = true;
   },
 };
 </script>
 
-<style scoped>
+<style>
 .mask {
   position: fixed;
   left: 0;
@@ -31,9 +43,28 @@ export default {
 .content {
   position: absolute;
   width: 500px;
-  right: -500px;
+  top: 0px;
   height: 100%;
-  transition: right 10s ease;
+  right: 0px;
   background-color: white;
+}
+.star-enter {
+  right: -500px;
+}
+.star-enter-active {
+  transition: all 1s ease-in-out;
+}
+.star-enter-to, .star-leave-to {
+  right: 0px;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: all 1s;
+}
+.fade-enter-to {
+  opacity: 1;
 }
 </style>
