@@ -34,6 +34,11 @@ const routes = [
     path: "/pop",
     name: "Pop",
     component: () => import('../views/Pop.vue')
+  },
+  {
+    path: "/table2",
+    name: "Table2",
+    component: () => import('../views/Table2.vue')
   }
   // {
   //   path: '/about',
