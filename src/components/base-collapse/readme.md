@@ -1,3 +1,8 @@
+# 基础收起展开组件
+
+## 基本用法
+
+```javascript
 <template>
   <div style="width: 100%; padding: 10px; box-sizing: border-box">
     <base-collapse :defaultExpand="true">
@@ -35,3 +40,18 @@ export default {
   },
 };
 </script>
+
+```
+
+## props
+
+| 属性            | 说明     | 类型    | 可选值          | 默认值 |
+| --------------- | -------- | ------- | --------------- | ------ |
+| defaultExpand   | 默认展开 | Boolean | true/false      | false  |
+| backgroundColor | 背景颜色 | String  | "white"，"#fff" | white  |
+
+## event
+
+| 事件   | 说明             | 参数                 |
+| ------ | ---------------- | -------------------- |
+| change | 展开收缩状态改变 | 是否收缩，true/false |

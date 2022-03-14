@@ -48,7 +48,7 @@ export default {
     };
   },
   created() {
-    this.isCollapse = this.defaultExpand;
+    this.isCollapse = !this.defaultExpand;
   },
   methods: {
     handleClick() {
