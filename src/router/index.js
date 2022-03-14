@@ -44,6 +44,11 @@ const routes = [
     path: "/table3",
     name: "Table3",
     component: () => import('../views/Table3.vue')
+  },
+  {
+    path: "/tag",
+    name: "Tag",
+    component: () => import("../views/Tag.vue")
   }
   // {
   //   path: '/about',
