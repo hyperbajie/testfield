@@ -49,6 +49,11 @@ const routes = [
     path: "/tag",
     name: "Tag",
     component: () => import("../views/Tag.vue")
+  },
+  {
+    path: "/Collapse",
+    name: "collapse",
+    component: () => import("../views/Collapse.vue")
   }
   // {
   //   path: '/about',
