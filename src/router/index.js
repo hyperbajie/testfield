@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Layout from "@/components/base-layout";
 
 Vue.use(VueRouter)
 
@@ -14,11 +15,23 @@ const generateRoutes = function () {
   requirePages.keys().forEach(fileName => {
     const page = requirePages(fileName);
     const pageName = fileName.replace(/\.\/(.*)\.vue/, '$1');
+    // Routes.push({
+    //   path: "/" + format(pageName),
+    //   name: pageName,
+    //   component: page.default
+    // });
+
     Routes.push({
       path: "/" + format(pageName),
-      name: pageName,
-      component: page.default
-    });
+      component: Layout,
+      children: [
+        {
+          path: "/" + format(pageName),
+          name: pageName,
+          component: page.default
+        }
+      ]
+    })
 
   });
 
@@ -102,7 +115,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if( to.path == "/" ) {
+  if (to.path == "/") {
     next("/home");
     return;
   }
