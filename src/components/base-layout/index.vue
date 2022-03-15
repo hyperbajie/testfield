@@ -12,7 +12,9 @@
       </ul>
     </div>
     <div class="content-wrapper">
-      <router-view></router-view>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>
@@ -58,5 +60,11 @@ li:hover {
   height: 100%;
   position: relative;
   margin-left: 200px;
+}
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+.fade-enter {
+  opacity: 0;
 }
 </style>
