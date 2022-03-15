@@ -57,6 +57,6 @@ li:hover {
   width: calc(100% - 200px);
   height: 100%;
   position: relative;
-  left: 200px;
+  margin-left: 200px;
 }
 </style>
