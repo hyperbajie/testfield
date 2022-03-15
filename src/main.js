@@ -11,10 +11,10 @@ Vue.use(Element);
 Vue.use(SelfInstall);
 // Vue.directive("change", changecolor);
 
-Vue.filter("lower", function(value) {
+Vue.filter("lower", function (value) {
   return value.charAt(0).toLowerCase() + value.slice(1);
 });
-new Vue({
+window.vm = new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
