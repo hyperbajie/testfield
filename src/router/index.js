@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -97,9 +96,17 @@ const routes = [
   // }
 ]
 
-const lastRoutes = routes.concat(generateRoutes());
+export const lastRoutes = routes.concat(generateRoutes());
 const router = new VueRouter({
   routes: lastRoutes
+})
+
+router.beforeEach((to, from, next) => {
+  if( to.path == "/" ) {
+    next("/home");
+    return;
+  }
+  next();
 })
 
 export default router
