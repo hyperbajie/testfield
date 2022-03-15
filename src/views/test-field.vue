@@ -11,15 +11,24 @@
       <p>第一行</p>
       <p>第二行</p>
     </el-dialog>
+    <el-divider></el-divider>
+    <vmodel v-model="data1"></vmodel>
+    <p>data1: {{data1}}</p>
+    <el-divider></el-divider>
   </div>
 </template>
 
 <script>
+import vmodel from "@/components/vmodel.vue";
 export default {
+  components: {
+    vmodel
+  },
   data() {
     return {
       show: false,
       pageShow: false,
+      data1: ""
     };
   },
 };
