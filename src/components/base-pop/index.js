@@ -1,9 +1,11 @@
 import BasePop from "./index.vue";
 import Vue from "vue";
 
+let ins;
+
 export const popfunc = function() {
     let basePop = Vue.extend(BasePop);
-    let ins = new basePop();
+    ins = new basePop();
     ins.$mount();
 
     document.body.appendChild(ins.$el);

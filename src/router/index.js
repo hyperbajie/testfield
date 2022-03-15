@@ -7,58 +7,63 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: "/table",
-    name: 'Table',
+    name: 'table',
     component: () => import('../views/Table.vue')
   },
   {
     path: "/scope",
-    name: "Scope",
+    name: "scope",
     component: () => import('../views/Scope.vue')
   },
   {
     path: "/promise",
-    name: "Promise",
+    name: "promise",
     component: () => import('../views/Promise.vue')
   },
   {
     path: "/jsx",
-    name: "Jsx",
+    name: "jsx",
     component: () => import('../views/Jsx.vue')
   },
   {
     path: "/pop",
-    name: "Pop",
+    name: "pop",
     component: () => import('../views/Pop.vue')
   },
   {
     path: "/pop2",
-    name: "Pop2",
+    name: "pop2",
     component: () => import('../views/Pop2.vue')
   },
   {
     path: "/table2",
-    name: "Table2",
+    name: "table2",
     component: () => import('../views/Table2.vue')
   },
   {
     path: "/table3",
-    name: "Table3",
+    name: "table3",
     component: () => import('../views/Table3.vue')
   },
   {
     path: "/tag",
-    name: "Tag",
+    name: "tag",
     component: () => import("../views/Tag.vue")
   },
   {
-    path: "/Collapse",
+    path: "/collapse",
     name: "collapse",
     component: () => import("../views/Collapse.vue")
+  },
+  {
+    path: "/testfield",
+    name: "testfield",
+    component: () => import("../views/test-field.vue")
   }
   // {
   //   path: '/about',

@@ -17,7 +17,9 @@ export default {
     close() {
       this.show = false;
       this.$nextTick(() => {
-        document.body.removeChild(this.$el);
+        setTimeout(() => {
+          document.body.removeChild(this.$el);
+        }, 400);
       });
     },
   },
