@@ -24,6 +24,7 @@ const generateRoutes = function () {
     Routes.push({
       path: "/" + format(pageName),
       component: Layout,
+      name: page.default.name,
       children: [
         {
           path: "/" + format(pageName),

@@ -1,17 +1,62 @@
 <template>
   <div style="width: 100%; height: 100%">
-    <div class="side-bar"></div>
-    <div>
-        <router-view></router-view>
+    <div class="side-bar">
+      <ul>
+        <li
+          v-for="item in routes"
+          :key="item.path"
+          @click="handleClick(item.path)"
+        >
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="content-wrapper">
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
+<script>
+import { lastRoutes } from "@/router/index.js";
+export default {
+  data() {
+    return {
+      routes: lastRoutes,
+    };
+  },
+  methods: {
+    handleClick(path) {
+      if (this.$route.path == path) {
+        return;
+      }
+      this.$router.push(path);
+    },
+  },
+};
+</script>
+
 <style scoped>
 .side-bar {
-  width: 100px;
+  width: 200px;
   float: left;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #e0f8f7;
+}
+li {
+  height: 50px;
+  line-height: 50px;
+  color: black;
+  cursor: pointer;
+}
+li:hover {
+  background-color: #81bef7;
+  color: white;
+}
+.content-wrapper {
+  width: calc(100% - 200px);
+  height: 100%;
+  position: relative;
+  left: 200px;
 }
 </style>

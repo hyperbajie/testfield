@@ -22,6 +22,7 @@
 import TableCommon from "@/components/table-common";
 
 export default {
+  name: "table3",
   components: {
     TableCommon,
   },

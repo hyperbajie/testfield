@@ -2,6 +2,12 @@
   <div class="title title-text">异常指标汇总</div>
 </template>
 
+<script>
+export default {
+  name: "tag"
+}
+</script>
+
 <style scoped>
 .title {
   display: inline-block;

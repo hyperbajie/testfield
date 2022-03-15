@@ -8,6 +8,7 @@
 <script>
 import jsxcom from "@/components/jsxcom";
 export default {
+    name: "jsx",
     components: {
         jsxcom
     }

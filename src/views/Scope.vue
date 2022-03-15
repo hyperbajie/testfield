@@ -15,6 +15,7 @@ import Container from "@/components/container";
 import Inner from "@/components/inner";
 
 export default {
+  name: "scope",
   components: {
     Container,
     Inner

@@ -8,6 +8,7 @@
 <script>
 import { popfunc } from "@/tools/pop";
 export default {
+  name: "pop",
   methods: {
     click() {
         popfunc();

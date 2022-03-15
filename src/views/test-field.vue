@@ -21,6 +21,7 @@
 <script>
 import vmodel from "@/components/vmodel.vue";
 export default {
+  name: "testfield",
   components: {
     vmodel
   },

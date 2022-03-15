@@ -19,6 +19,7 @@ import MyTable from "@/components/my-table";
 import JsTable from "@/components/js-table";
 import ComTable from "@/components/com-table";
 export default {
+  name: "table",
   components: {
     MyTable,
     JsTable,

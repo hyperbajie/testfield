@@ -36,7 +36,6 @@ export default {
     promise: {
       immediate: true,
       handler: function () {
-        console.log("watch changed");
         this.promiseStatus = "pending";
         if (this.promise instanceof Promise) {
           this.promise.then(

@@ -7,6 +7,7 @@
 <script>
 import { popfunc } from "@/components/base-pop/index.js";
 export default {
+  name: "pop2",
   methods: {
     handleClick() {
       popfunc();
