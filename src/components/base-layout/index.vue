@@ -50,10 +50,12 @@ li {
   line-height: 50px;
   color: black;
   cursor: pointer;
+  text-indent: 10px;
 }
 li:hover {
   background-color: #81bef7;
   color: white;
+  font-size: 20px;
 }
 .content-wrapper {
   width: calc(100% - 200px);
