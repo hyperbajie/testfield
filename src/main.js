@@ -4,6 +4,8 @@ import router from './router'
 import Element from 'element-ui'
 import "element-ui/lib/theme-chalk/index.css";
 import SelfInstall from "./install";
+import "@/css/index.scss";
+
 Vue.config.productionTip = false
 
 Vue.use(Element);
