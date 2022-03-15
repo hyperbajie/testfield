@@ -3,11 +3,13 @@ import Vue from "vue";
 
 let ins;
 
-export const popfunc = function() {
+export const popfunc = function () {
     let basePop = Vue.extend(BasePop);
-    ins = new basePop();
-    ins.$mount();
+    if (!ins) {
+        ins = new basePop();
+        ins.$mount();
+        document.body.appendChild(ins.$el);
+    }
 
-    document.body.appendChild(ins.$el);
     ins.show = true;
 }

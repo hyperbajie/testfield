@@ -1,9 +1,9 @@
 <template>
-  <div class="mask base-pop-transition" @click="close">
-    <transition name="fade">
-      <div v-if="show" class="content-body">wtf</div>
-    </transition>
-  </div>
+  <transition name="fade">
+    <div v-if="show"  class="mask base-pop-transition" @click="close">
+      <div class="content-body">wtf</div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -16,11 +16,6 @@ export default {
   methods: {
     close() {
       this.show = false;
-      this.$nextTick(() => {
-        setTimeout(() => {
-          document.body.removeChild(this.$el);
-        }, 400);
-      });
     },
   },
 };
