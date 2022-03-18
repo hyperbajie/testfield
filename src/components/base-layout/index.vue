@@ -62,6 +62,7 @@ li:hover {
   height: 100%;
   position: relative;
   margin-left: 200px;
+  overflow: auto;
 }
 .fade-enter-active {
   transition: opacity 0.5s;

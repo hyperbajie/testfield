@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <h3>test-field</h3>
     <el-button @click="show = !show">toggle show</el-button>
     <transition name="fade">
@@ -43,6 +43,20 @@
       <el-table-column prop="amount2" label="数值 2（元）"> </el-table-column>
       <el-table-column prop="amount3" label="数值 3（元）"> </el-table-column>
     </el-table>
+    <el-divider></el-divider>
+    <div style="width: 500px">
+      <el-input
+        type="textarea"
+        :rows="3"
+        placeholder="请输入内容"
+        v-model="textarea"
+      >
+      </el-input>
+    </div>
+    <el-divider></el-divider>
+    <el-tag v-for="(item,index) in tags" :key="index">
+      {{item.label}}
+    </el-tag>
   </div>
 </template>
 
@@ -95,6 +109,15 @@ export default {
           amount3: 15,
         },
       ],
+      textarea: "",
+      tags: [
+        {
+          label: "v1"
+        },
+        {
+          label: "v2"
+        }
+      ]
     };
   },
   methods: {
@@ -107,9 +130,9 @@ export default {
       //   }
       // }
       // console.log("row,column", rowIndex, columnIndex);
-      if( rowIndex == 0 && columnIndex == 1 ) {
+      if (rowIndex == 0 && columnIndex == 1) {
         return [5, 1];
-      } else if( columnIndex == 1 ) {
+      } else if (columnIndex == 1) {
         return [0, 1];
       }
     },
