@@ -10,15 +10,16 @@
             'bg-unselected': currHref != item.href,
           }"
         ></div>
-        <a
+        <span
           :href="'#' + item.href"
           :class="{
-            'a-selected': currHref == item.href,
-            'a-unselected': currHref != item.href,
+            'span-selected': currHref == item.href,
+            'span-unselected': currHref != item.href,
           }"
           @click="handleClickATag(item)"
-          >{{ item.label }}</a
         >
+          {{ item.label }}
+        </span>
       </li>
     </ul>
   </div>
@@ -26,6 +27,7 @@
 
 <script>
 export default {
+  name: "BaseAnchor",
   props: {
     labelList: {
       type: Array,
@@ -42,13 +44,18 @@ export default {
   },
   data() {
     return {
+      // 当前锚点
       currHref: "",
+      // 锚点元素列表
+      hrefEleList: [],
     };
   },
   computed: {
     relatedEl: function () {
       if (this.$parent.$refs[this.elRefName]) {
-        return this.$parent.$refs[this.elRefName];
+        return this.$parent.$refs[this.elRefName] instanceof HTMLElement
+          ? this.$parent.$refs[this.elRefName]
+          : this.$parent.$refs[this.elRefName].$el;
       }
       return null;
     },
@@ -64,25 +71,54 @@ export default {
       this.handleRelatedElScroll();
     }
   },
+  destroyed() {
+    // todo 摧毁
+  },
   methods: {
+    /**
+     * 绑定滚动监听
+     */
     bindEventListener() {
-      this.relatedEl.addEventListener("scroll", this.handleRelatedElScroll);
+      this.relatedEl?.addEventListener("scroll", this.handleRelatedElScroll);
     },
+    /**
+     * 处理滚动
+     */
     handleRelatedElScroll() {
       this.currHref = this.getCurrHref();
     },
+    /**
+     * 获取当前标签
+     */
     getCurrHref() {
-      for (let i = 0; i < this.relatedEl.childNodes.length; i++) {
-        let ele = this.relatedEl.childNodes[i];
-        if (ele.offsetTop >= this.relatedEl.scrollTop) {
+      for (let i = 0; i < this.labelList.length; i++) {
+        let ele = this.relatedEl.querySelector("#" + this.labelList[i].href);
+        if (ele && ele.offsetTop >= this.relatedEl.scrollTop) {
           return ele.id;
         }
       }
       return "";
     },
+    /**
+     * 处理点击标签
+     */
     handleClickATag(item) {
-      this.currHref = item.href;
+      // this.currHref = item.href;
+      this.setScroll(item);
       this.$emit("click", item);
+    },
+    /**
+     * 设置滚动条
+     */
+    setScroll(item) {
+      let ele = this.relatedEl?.querySelector("#" + item.href);
+      if (ele) {
+        this.relatedEl.scrollTo({
+          left: 0,
+          top: ele.offsetTop,
+          behavior: "smooth",
+        });
+      }
     },
   },
 };
@@ -91,7 +127,6 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-  padding: 15px 24px 15px 24px;
   height: 68px;
   position: relative;
 }
@@ -112,18 +147,19 @@ li {
   list-style-type: none;
   text-align: center;
 }
-a {
+span {
   text-decoration: none;
   display: inline-block;
   margin-top: 10px;
+  cursor: pointer;
 }
-.a-unselected {
+.span-unselected {
   font-size: 14px;
   font-family: Source Han Sans CN;
   font-weight: 400;
   color: #666666;
 }
-.a-selected {
+.span-selected {
   font-size: 14px;
   font-family: Source Han Sans CN;
   font-weight: 400;
