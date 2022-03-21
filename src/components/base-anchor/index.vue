@@ -3,8 +3,21 @@
     <div class="bg-line"></div>
     <ul class="item-container">
       <li v-for="(item, index) in labelList" :key="index">
-        <div class="circle bg-unselected"></div>
-        <a class="common" :href="item.href">{{ item.label }}</a>
+        <div
+          class="circle"
+          :class="{
+            'bg-selected': currHref == item.href,
+            'bg-unselected': currHref != item.href,
+          }"
+        ></div>
+        <a
+          :href="'#'+item.href"
+          :class="{
+            'a-selected': currHref == item.href,
+            'a-unselected': currHref != item.href,
+          }"
+          >{{ item.label }}</a
+        >
       </li>
     </ul>
   </div>
@@ -18,6 +31,53 @@ export default {
       default: function () {
         return [];
       },
+    },
+    elRefName: {
+      type: String,
+      default: function () {
+        return "elRefName";
+      },
+    },
+  },
+  data() {
+    return {
+      currHref: "",
+    };
+  },
+  computed: {
+    relatedEl: function () {
+      if (this.$parent.$refs[this.elRefName]) {
+        return this.$parent.$refs[this.elRefName];
+      }
+      return null;
+    },
+  },
+  watch: {
+    currHref: function () {
+      console.log("changed,", this.currHref);
+    },
+  },
+  mounted() {
+    if (this.relatedEl) {
+      this.bindEventListener();
+      this.handleRelatedElScroll();
+    }
+  },
+  methods: {
+    bindEventListener() {
+      this.relatedEl.addEventListener("scroll", this.handleRelatedElScroll);
+    },
+    handleRelatedElScroll() {
+      this.currHref = this.getCurrHref();
+    },
+    getCurrHref() {
+      for (let i = 0; i < this.relatedEl.childNodes.length; i++) {
+        let ele = this.relatedEl.childNodes[i];
+        if (ele.offsetTop >= this.relatedEl.scrollTop) {
+          return ele.id;
+        }
+      }
+      return "";
     },
   },
 };
@@ -52,13 +112,13 @@ a {
   display: inline-block;
   margin-top: 10px;
 }
-a[class="common"] {
+.a-unselected {
   font-size: 14px;
   font-family: Source Han Sans CN;
   font-weight: 400;
   color: #666666;
 }
-a[class="spec"] {
+.a-selected {
   font-size: 14px;
   font-family: Source Han Sans CN;
   font-weight: 400;
