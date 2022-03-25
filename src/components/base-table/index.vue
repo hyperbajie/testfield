@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button @click="handleClickCustomize">自定义</el-button>
-    <el-table v-bind="$attrs">
+    <el-table v-bind="$attrs" :key="tableKey">
       <slot></slot>
     </el-table>
     <el-dialog :visible.sync="show">
@@ -28,6 +28,7 @@ export default {
       tempOptions: [],
       oldDefaultSlots: null,
       oriDefaultSlotsObj: {},
+      tableKey: 0,
     };
   },
   mounted() {
@@ -55,9 +56,10 @@ export default {
         }
         return pre;
       }, []);
-    //   console.log(this.tempOptions,temp);
+      //   console.log(this.tempOptions,temp);
       this.$slots.default = temp;
       this.options = this.tempOptions;
+      this.tableKey ++;
       this.show = false;
     },
   },

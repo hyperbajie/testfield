@@ -5,9 +5,9 @@
       <el-table-column label="姓名" prop="name"></el-table-column>
       <el-table-column label="年龄" prop="age"></el-table-column>
       <el-table-column label="性别" prop="gender">
-          <template v-slot="scope">
-              {{scope.row.gender == 1 ? "男":"女"}}
-          </template>
+        <template v-slot="scope">
+          {{ scope.row.gender == 1 ? "男" : "女" }}
+        </template>
       </el-table-column>
       <el-table-column label="邮箱" prop="email"></el-table-column>
       <el-table-column label="备注" prop="note"></el-table-column>
