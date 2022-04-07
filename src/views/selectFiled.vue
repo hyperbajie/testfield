@@ -8,6 +8,8 @@
       clearable
       :list="HosCaseNums"
       :secondaryValue.sync="currSelectV2"
+      @change="handleChange"
+      @visible-change="handleVisibleChange"
     ></base-select>
   </div>
 </template>
@@ -34,8 +36,16 @@ export default {
       ],
       currSelectV: 1,
       HosCaseNums,
-      currSelectV2: 202107501,
+      currSelectV2: "202107501",
     };
+  },
+  methods: {
+    handleChange() {
+      console.log("changed");
+    },
+    handleVisibleChange() {
+      console.log("can you hear me");
+    },
   },
 };
 </script>
