@@ -1,13 +1,20 @@
 <template>
   <div>
     <h3>select</h3>
+    <!-- <el-divider></el-divider>
+    <base-select :list="dataList" :currV.sync="currSelectV"></base-select> -->
     <el-divider></el-divider>
-    <base-select :list="dataList" :currV.sync="currSelectV"></base-select>
+    <base-select
+      clearable
+      :list="HosCaseNums"
+      :secondaryValue.sync="currSelectV2"
+    ></base-select>
   </div>
 </template>
 
 <script>
 import BaseSelect from "@/components/base-select";
+import { HosCaseNums } from "@/mock";
 export default {
   name: "selectField",
   components: {
@@ -26,6 +33,8 @@ export default {
         },
       ],
       currSelectV: 1,
+      HosCaseNums,
+      currSelectV2: 202107501,
     };
   },
 };

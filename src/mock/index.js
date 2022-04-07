@@ -1,1 +1,1 @@
-export { HosCaseNums } from "./hosCaseNum"
+export { HosCaseNums } from "./hosCaseNums"
