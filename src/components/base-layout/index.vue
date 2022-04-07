@@ -45,6 +45,11 @@ export default {
   height: 100%;
   background-color: #e0f8f7;
 }
+ul {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
 li {
   height: 50px;
   line-height: 50px;
