@@ -42,7 +42,7 @@ export default {
     // 每次加载多少
     seg: {
       default: function () {
-        return 50;
+        return 20;
       },
     },
   },
@@ -78,6 +78,7 @@ export default {
     },
   },
   mounted() {
+    window.ins = this;
     this.addListener();
   },
   methods: {
@@ -102,11 +103,13 @@ export default {
                 0
               );
               this.setLocalList();
-              e.target.scrollTop = plus / this.upperLimit * e.target.scrollHeight - e.target.clientHeight;
+              e.target.scrollTop =
+                (1 - plus / this.upperLimit) * e.target.scrollHeight -
+                e.target.clientHeight;
               return;
             }
             // 判断已经滑到顶了
-            if (this.sliceStartIndex != 0 && e.target.scrollTop < 20) {
+            if (this.sliceStartIndex > 0 && e.target.scrollTop <= 20) {
               this.sliceStartIndex = Math.max(
                 0,
                 this.sliceStartIndex - this.seg
