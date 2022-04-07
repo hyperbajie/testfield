@@ -92,16 +92,17 @@ export default {
               e.target.scrollHeight - e.target.scrollTop <=
                 e.target.clientHeight + 20
             ) {
-              this.sliceEndIndex += Math.min(
+              let plus = Math.min(
                 this.seg,
                 this.list.length - this.sliceEndIndex
               );
+              this.sliceEndIndex += plus;
               this.sliceStartIndex = Math.max(
                 this.sliceEndIndex - this.upperLimit,
                 0
               );
               this.setLocalList();
-              e.target.scrollTop = e.target.scrollHeight / 2;
+              e.target.scrollTop = plus / this.upperLimit * e.target.scrollHeight - e.target.clientHeight;
               return;
             }
             // 判断已经滑到顶了
