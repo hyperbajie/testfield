@@ -6,6 +6,7 @@
     <el-divider></el-divider>
     <base-select
       clearable
+
       :list="HosCaseNums"
       :secondaryValue.sync="currSelectV2"
       @change="handleChange"
@@ -36,15 +37,18 @@ export default {
       ],
       currSelectV: 1,
       HosCaseNums,
-      currSelectV2: "202107501",
+      // currSelectV2: ["202107501","202112263"],
+      currSelectV2: "202107501"
+      //       multiple
+      // collapse-tags
     };
   },
   methods: {
     handleChange() {
-      console.log("changed");
+      // console.log("changed");
     },
     handleVisibleChange() {
-      console.log("can you hear me");
+      // console.log("can you hear me");
     },
   },
 };
