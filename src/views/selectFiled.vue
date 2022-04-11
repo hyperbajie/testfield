@@ -4,14 +4,23 @@
     <!-- <el-divider></el-divider>
     <base-select :list="dataList" :currV.sync="currSelectV"></base-select> -->
     <el-divider></el-divider>
-    <base-select
+    <!-- <base-select
       clearable
-
-      :list="HosCaseNums"
+      :list="hosCaseList"
       :secondaryValue.sync="currSelectV2"
       @change="handleChange"
       @visible-change="handleVisibleChange"
-    ></base-select>
+    ></base-select> -->
+    <el-button @click="toggleList">toggle list</el-button>
+    <el-divider></el-divider>
+    <el-select clearable v-model="currSelectV">
+      <el-option
+        v-for="item in hosCaseList"
+        :key="item.value"
+        :value="item.value"
+        :label="item.label"
+      ></el-option>
+    </el-select>
   </div>
 </template>
 
@@ -35,10 +44,10 @@ export default {
           value: 2,
         },
       ],
-      currSelectV: 1,
-      HosCaseNums,
+      currSelectV: "202107501",
+      hosCaseList: [],
       // currSelectV2: ["202107501","202112263"],
-      currSelectV2: "202107501"
+      currSelectV2: "202107501",
       //       multiple
       // collapse-tags
     };
@@ -49,6 +58,10 @@ export default {
     },
     handleVisibleChange() {
       // console.log("can you hear me");
+    },
+    toggleList() {
+      this.hosCaseList = HosCaseNums;
+      this.currSelectV2 = "202107501";
     },
   },
 };

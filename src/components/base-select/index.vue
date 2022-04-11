@@ -71,6 +71,8 @@ export default {
       searchList: [],
       // 搜索中标识
       inSearch: false,
+      // 标记已监听
+      haveListen: false,
     };
   },
   computed: {
@@ -99,7 +101,11 @@ export default {
     window.ins = this;
     this.addListener();
     this.spliceLocalValue();
-    this.setLocalList();
+    // this.setLocalList();
+    this.$watch("list", function() {
+      this.addListener();
+      // this.spliceLocalValue();
+    })
   },
   methods: {
     // 将当前选中值提取到前面
@@ -132,7 +138,11 @@ export default {
     },
     // 添加监听
     addListener() {
+      if (this.haveListen) {
+        return;
+      }
       if (this.factList.length > this.upperLimit && this.$refs?.selectRef) {
+        this.haveListen = true;
         this.$refs.selectRef.$refs.scrollbar.$el.childNodes[0].addEventListener(
           "scroll",
           (e) => {
