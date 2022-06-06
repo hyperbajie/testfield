@@ -4,23 +4,12 @@
     <!-- <el-divider></el-divider>
     <base-select :list="dataList" :currV.sync="currSelectV"></base-select> -->
     <el-divider></el-divider>
-    <base-select
-      clearable
-      :list="hosCaseList"
-      :secondaryValue.sync="currSelectV2"
-      @change="handleChange"
-      @visible-change="handleVisibleChange"
-    ></base-select>
+    <base-select clearable :list="hosCaseList" :secondaryValue.sync="currSelectV2" @change="handleChange" @visible-change="handleVisibleChange"></base-select>
     <el-button @click="toggleList">toggle list</el-button>
     <el-divider></el-divider>
-    <!-- <el-select clearable v-model="currSelectV">
-      <el-option
-        v-for="item in hosCaseList"
-        :key="item.value"
-        :value="item.value"
-        :label="item.label"
-      ></el-option>
-    </el-select> -->
+    <el-select clearable v-model="currSelectV" filterable multiple @focus="handleFocus" remote :remote-method="handleSearch">
+      <el-option v-for="item in hosCaseList" :key="item.value" :value="item.value" :label="item.label"></el-option>
+    </el-select>
   </div>
 </template>
 
@@ -63,6 +52,11 @@ export default {
       this.hosCaseList = HosCaseNums;
       this.currSelectV2 = "202107501";
     },
+    handleFocus() {},
+
+    handleSearch() {
+      this.hosCaseList = [];
+    }
   },
 };
 </script>

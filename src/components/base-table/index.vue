@@ -1,4 +1,5 @@
 <template>
+  <!-- 使用插槽的el-table -->
   <div>
     <el-button @click="handleClickCustomize">自定义</el-button>
     <el-table v-bind="$attrs" :key="tableKey">
