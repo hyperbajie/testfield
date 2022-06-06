@@ -22,7 +22,7 @@
 <script>
 import Vue from "vue";
 import Father from "@/components/father";
-import changecolor from "@/directives/changecolor.js";
+// import changecolor from "@/directives/changecolor.js";
 import Name from "@/mixin/name.js";
 export default {
   name: "home",
@@ -33,9 +33,9 @@ export default {
       msg2: "Fucking world",
     };
   },
-  directives: {
-    change: changecolor,
-  },
+  // directives: {
+  //   change: changecolor,
+  // },
   filters: {
     capitalize: function (value) {
       if (!value) return "";

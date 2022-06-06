@@ -5,8 +5,14 @@ import Element from 'element-ui'
 import "element-ui/lib/theme-chalk/index.css";
 import SelfInstall from "./install";
 import "@/css/index.scss";
+import { autoAnimatePlugin } from "@formkit/auto-animate/vue";
+import { install as directiveInstall } from "@/directives";
 
 Vue.config.productionTip = false
+
+Vue.use(autoAnimatePlugin);
+
+Vue.use(directiveInstall);
 
 Vue.use(Element);
 
