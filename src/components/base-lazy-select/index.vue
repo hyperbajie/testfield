@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import LazyLoad from "@/directive/lazy-load";
+import LazyLoad from "@/directives/lazy-load";
 
 export default {
   directives: {
