@@ -2,11 +2,7 @@
   <div style="width: 100%; height: 100%">
     <div class="side-bar">
       <ul>
-        <li
-          v-for="item in routes"
-          :key="item.path"
-          @click="handleClick(item.path)"
-        >
+        <li v-for="item in routes" :key="item.path" @click="handleClick(item.path)" :class="{ selected: item.path === currentPath }">
           {{ item.name }}
         </li>
       </ul>
@@ -33,6 +29,11 @@ export default {
         return;
       }
       this.$router.push(path);
+    },
+  },
+  computed: {
+    currentPath() {
+      return this.$route.path;
     },
   },
 };
@@ -68,12 +69,16 @@ li:hover {
   position: relative;
   margin-left: 200px;
   overflow: auto;
-  
 }
 .fade-enter-active {
   transition: opacity 0.5s;
 }
 .fade-enter {
   opacity: 0;
+}
+.selected {
+  background-color: #81bef7;
+  color: white;
+  font-size: 20px;
 }
 </style>
