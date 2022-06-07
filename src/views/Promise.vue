@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>i'm Promise</h3>
+    <h3>Promise组件使用传入的promise状态来显示不同的情况</h3>
     <promised :promise="promise">
       <template v-slot="data">
         <div>fulfilled: {{ data.data }}</div>

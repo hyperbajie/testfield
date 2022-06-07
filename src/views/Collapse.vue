@@ -1,5 +1,6 @@
 <template>
-  <div style="width: 100%; padding: 10px; box-sizing: border-box">
+  <div>
+    <h3>BaseCollapse测试</h3>
     <base-collapse :defaultExpand="true">
       <template v-slot:title>
         <p>异常信息</p>

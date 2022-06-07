@@ -1,17 +1,22 @@
 <template>
   <div>
-    <h3>i'm pop</h3>
-    <el-button @click="click">click</el-button>
+    <h3>两个弹窗</h3>
+    <el-button @click="click">右侧弹窗</el-button>
+    <el-button @click="handleClick">弹出对话框</el-button>
   </div>
 </template>
 
 <script>
 import { popfunc } from "@/tools/pop";
+import { popfunc as popDialog } from "@/components/base-pop/index.js";
 export default {
   name: "pop",
   methods: {
     click() {
-        popfunc();
+      popfunc();
+    },
+    handleClick() {
+      popDialog();
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>customize page</h3>
+    <h3>BaseTable测试,包装了el-table，插槽方式实现表头自定义</h3>
     <base-table :data="tableData">
       <el-table-column label="姓名" prop="name"></el-table-column>
       <el-table-column label="年龄" prop="age"></el-table-column>

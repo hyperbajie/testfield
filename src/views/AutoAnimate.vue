@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Animation</h3>
+    <h3>AutoAnimate的测试</h3>
     <el-input v-model="inputStr"></el-input>
     <el-button plain @click="handleClickAdd">add</el-button>
     <ul v-auto-animate="{ duration: 100 }">
@@ -13,9 +13,13 @@
 </template>
 
 <script>
-
+/**
+ * AutoAnimate 的测试
+ * AutoAnimate在vue中使用directive的方式实现对该元素或其直接子元素增删改的动画添加
+ * AutoAnimate在directive中使用mounted钩子函数，因此在vue2中无法直接使用
+ */
 export default {
-  name: "Animation",
+  name: "AutoAnimate",
   data() {
     return {
       list: [

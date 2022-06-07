@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>permission page</h3>
+    <h3>权限指令测试</h3>
     <br />
     <button v-permission:[tar]="autho">you know</button>
     <br />

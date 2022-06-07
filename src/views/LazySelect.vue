@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>lazy select</h3>
+    <h3>懒加载的指令测试</h3>
     <el-select v-model="curSelect" v-lazyload="loadMore" filterable clearable remote :remote-method="searchInList" @focus="resetList">
       <el-option v-for="item in caseNumList" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
@@ -10,7 +10,7 @@
 <script>
 import { HosCaseNums } from "@/mock/hosCaseNums";
 export default {
-  name: "lazyselect",
+  name: "LazySelect",
   directives: {
     lazyload: {
       bind: function (el, binding) {

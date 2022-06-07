@@ -1,6 +1,6 @@
 <template>
-  <div class="app-container">
-    <h3>test-field</h3>
+  <div>
+    <h3>vue综合测试</h3>
     <el-table :data="tableData|removeEmpty">
       <el-table-column label="id" prop="id"></el-table-column>
       <el-table-column label="name" prop="name"></el-table-column>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "testfield",
+  name: "TestField",
   filters: {
     removeEmpty: function(value) {
       return value.filter(item=>{

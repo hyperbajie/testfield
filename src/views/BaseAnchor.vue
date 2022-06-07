@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>anchor anchor</h3>
+    <h3>BaseAnchor测试(href实现)</h3>
     <div style="width: 1000px">
       <BaseAnchor :labelList="labelList" elRefName="scrollEl"></BaseAnchor>
     </div>
@@ -59,6 +59,11 @@
 </template>
 
 <script>
+/**
+ * BaseAnchor 使用href的方式跳转；
+ * 实际上感觉不需要这样实现，使用Element.scrollIntoView()或许会是更好的方案
+ * 顶部的进度条只做事件监听，当点击触发将事件抛出来，在父组件中使用element.scrollIntoView()更优
+ */
 import BaseAnchor from "@/components/base-anchor";
 export default {
   name: "anchor",

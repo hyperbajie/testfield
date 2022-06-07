@@ -13,7 +13,7 @@
     </div>
     <div class="content-wrapper">
       <transition name="fade">
-        <router-view></router-view>
+        <router-view class="app-container"></router-view>
       </transition>
     </div>
   </div>
@@ -68,6 +68,7 @@ li:hover {
   position: relative;
   margin-left: 200px;
   overflow: auto;
+  
 }
 .fade-enter-active {
   transition: opacity 0.5s;
