@@ -17,7 +17,7 @@
 <script>
 import BaseCollapse from "@/components/base-collapse/index.vue";
 export default {
-  name: "collapse",
+  name: "Collapse",
   components: {
     BaseCollapse
   },

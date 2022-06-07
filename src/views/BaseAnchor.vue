@@ -66,7 +66,7 @@
  */
 import BaseAnchor from "@/components/base-anchor";
 export default {
-  name: "anchor",
+  name: "Anchor",
   components: {
     BaseAnchor,
   },

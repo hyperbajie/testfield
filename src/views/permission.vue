@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "permission",
+  name: "Permission",
   directives: {
     permission: {
       inserted: function (el, binding) {

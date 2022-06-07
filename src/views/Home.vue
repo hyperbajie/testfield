@@ -25,7 +25,7 @@ import Father from "@/components/father";
 // import changecolor from "@/directives/changecolor.js";
 import Name from "@/mixin/name.js";
 export default {
-  name: "home",
+  name: "Home",
   mixins: [Name],
   data() {
     return {

@@ -21,7 +21,7 @@
 <script>
 import Promised from "@/components/promised";
 export default {
-  name: "promise",
+  name: "PromiseComponent",
   components: {
     Promised,
   },

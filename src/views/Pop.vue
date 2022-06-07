@@ -10,7 +10,7 @@
 import { popfunc } from "@/tools/pop";
 import { popfunc as popDialog } from "@/components/base-pop/index.js";
 export default {
-  name: "pop",
+  name: "Pop",
   methods: {
     click() {
       popfunc();
