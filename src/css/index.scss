@@ -12,3 +12,22 @@ body {
   padding: 20px;
   width: 100%;
 }
+
+.add-anim {
+  animation: add-animation ease-in 0.5s;
+}
+@keyframes add-animation {
+  0% {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+  50% {
+    transform: "scale(0.98)";
+    opacity: 0;
+    offset: 0.5;
+  }
+  100% {
+    transform: "scale(1)";
+    opacity: 1;
+  }
+}

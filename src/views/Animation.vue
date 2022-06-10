@@ -1,11 +1,8 @@
 <template>
   <div>
-    <el-input v-model="inputStr"></el-input>
-    <el-button @click="handleClickAdd">添加一个节点</el-button>
-
-    <div v-for="(item, index) in list" :key="item.id">
-      <span>{{ item.value }}</span> <el-button type="text" @click="handleClickDel(index)">删除</el-button>
-    </div>
+    <h3>Element.animate 接口测试;增加元素时附加动画</h3>
+    <el-button @click="handleClickEle">添加元素</el-button>
+    <div ref="container" class="container"></div>
   </div>
 </template>
 
@@ -13,35 +10,37 @@
 export default {
   name: "Animation",
   data() {
-    return {
-      list: [
-        {
-          id: 1,
-          value: "a-11",
-        },
-        {
-          id: 2,
-          value: "a-12",
-        },
-      ],
-      id: 2,
-      inputStr: "",
-    };
+    return {};
   },
+  mounted() {},
   methods: {
-    handleClickDel(index) {
-      this.list.splice(index, 1);
-    },
-    handleClickAdd() {
-      if (!this.inputStr) {
-        return;
-      }
-      this.list.push({
-        id: ++this.id,
-        value: this.inputStr,
-      });
-      this.inputStr = "";
+    handleClickEle() {
+      let el = document.createElement("span");
+      el.innerText = Math.random().toFixed(2);
+      let animation = el.animate(
+        [
+          { transform: "scale(.98)", opacity: 0 },
+          { transform: "scale(0.98)", opacity: 0, offset: 0.5 },
+          { transform: "scale(1)", opacity: 1 },
+        ],
+        {
+          duration: 1000,
+          easing: "ease-in",
+        }
+      );
+      this.$refs.container.appendChild(el);
     },
   },
 };
 </script>
+
+<style scoped>
+.container {
+  margin-top: 20px;
+  border: 1px solid pink;
+  border-radius: 10px;
+  min-height: 100px;
+  width: 800px;
+  padding: 10px;
+}
+</style>
